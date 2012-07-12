@@ -16,12 +16,16 @@ class Jplugin::Cli < Thor::Group
     template( 'templates/mit-license.tt', "#{name}/MIT-LICENSE.txt" )
   end
 
+  def create_readme_file
+    template( 'templates/readme.tt', "#{name}/README.md" )
+  end
+
   def create_plugin_file
     template( 'templates/jquery-name.tt', "#{name}/#{name}.js" )
   end
 
-  def create_rakefile
-    template( 'templates/rakefile.tt', "#{name}/Rakefile" )
+  def create_thorfile
+    template( 'templates/thorfile.tt', "#{name}/Thorfile" )
   end
 
   def create_public_folder
