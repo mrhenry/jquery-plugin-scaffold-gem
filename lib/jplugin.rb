@@ -3,4 +3,5 @@ module Jplugin
   require "thor/base"
   require "thor/group"
   require "jplugin/jplugin_cli"
+  require "date"
 end
