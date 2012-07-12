@@ -36,4 +36,10 @@ class Jplugin::Cli < Thor::Group
     template( 'templates/index-html.tt', "#{name}/public/index.html" )
   end
 
+  def init_git
+    run( "git init")
+    run( "git add .")
+    run( 'git commit -m "Initial commit"')
+  end
+
 end
