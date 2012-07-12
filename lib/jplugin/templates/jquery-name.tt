@@ -1,0 +1,10 @@
+/*
+ * jQuery <%= name %>
+ * Created at: <%= Time.now %>
+ * Author: <%= name %>
+ * Version: 0.0.0
+ */
+
+(function() {
+
+}(jQuery));
