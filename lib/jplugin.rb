@@ -1,5 +1,6 @@
 module Jplugin
   require "jplugin/version"
-  require "thor"
-  require "jplugin/cli"
+  require "thor/base"
+  require "thor/group"
+  require "jplugin/jplugin_cli"
 end

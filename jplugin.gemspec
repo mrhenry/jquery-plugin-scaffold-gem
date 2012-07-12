@@ -4,8 +4,8 @@ require File.expand_path('../lib/jplugin/version', __FILE__)
 Gem::Specification.new do |gem|
   gem.authors       = ["Yves Van Broekhoven"]
   gem.email         = ["yvesvanbroekhoven@gmail.com"]
-  gem.description   = %q{TODO: Write a gem description}
-  gem.summary       = %q{TODO: Write a gem summary}
+  gem.description   = %q{Scaffold jQuery plugin folder structure & helpers}
+  gem.summary       = %q{Scaffold jQuery plugin folder structure & helpers}
   gem.homepage      = ""
 
   gem.executables   = `git ls-files -- bin/*`.split("\n").map{ |f| File.basename(f) }
