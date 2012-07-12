@@ -37,9 +37,9 @@ class Jplugin::Cli < Thor::Group
   end
 
   def init_git
-    run( "git init")
-    run( "git add .")
-    run( 'git commit -m "Initial commit"')
+    run( "(cd #{name}; git init)")
+    run( "(cd #{name}; git add .)")
+    run( "(cd #{name}; git commit -m 'Initial commit')")
   end
 
 end
