@@ -11,12 +11,19 @@ class Jplugin < Thor
 
     desc "patch", "Release patch version"
     def patch
-      run( 'git add .; git add -u')
-      gsub_file( '<%= name %>.js', /Version[:].+$/) do |match|
-        label, version = *match.split(':', 2)
-        parts = version.strip.split('.')
-        parts[2] = parts[2].to_i + 1
-        "#{label}: #{parts.join('.')}"
+      git_status = run( '[[ $(git diff --shortstat 2> /dev/null | tail -n1) != "" ]] && echo "dirty"', :capture => true )
+
+      unless git_status =~ /^dirty/
+        gsub_file( '<%= name %>.js', /Version[:].+$/) do |match|
+          label, version = *match.split(':', 2)
+          parts = version.strip.split('.')
+          parts[2] = parts[2].to_i + 1
+          "#{label}: #{parts.join('.')}"
+        end
+
+      else
+        say( 'Your git branch is not clean' )
+
       end
     end
 
