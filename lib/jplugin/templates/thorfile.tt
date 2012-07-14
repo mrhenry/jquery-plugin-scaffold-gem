@@ -4,7 +4,7 @@ class Jplugin < Thor
   desc "compile", "Compiles js file to public/"
   def compile
     relative = '<%= name %>.js'
-    run( "closure --js #{relative} --js_output_file ./public/#{relative.gsub(".js",".min.js")}" )
+    run( "closure --js #{relative} --js_output_file ./public/#{relative.gsub(".js","-min.js")}" )
   end
 
   class Release < self
@@ -47,6 +47,7 @@ class Jplugin < Thor
           label, version = *match.split(':', 2)
           parts = version.strip.split('.')
           parts[1] = parts[1].to_i + 1
+          parts[2] = 0
           "#{label}: #{parts.join('.')}"
         end
 
@@ -72,6 +73,8 @@ class Jplugin < Thor
           label, version = *match.split(':', 2)
           parts = version.strip.split('.')
           parts[0] = parts[0].to_i + 1
+          parts[1] = 0
+          parts[2] = 0
           "#{label}: #{parts.join('.')}"
         end
 
@@ -79,7 +82,7 @@ class Jplugin < Thor
         run( "git tag -a v#{parts.join('.')} -m '#{label}: #{parts.join('.')}'")
 
       else
-        git_status = run( '[[ $(git diff --shortstat 2> /dev/null | tail -n1) != "" ]] && echo "dirty"', :capture => true )
+        say( 'Your git branch is not clean', :red )
 
       end
     end
