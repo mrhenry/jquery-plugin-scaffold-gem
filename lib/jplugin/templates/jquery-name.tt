@@ -1,9 +1,12 @@
-/*
+/** @preserve
  * <%= name %>
  *
  * Created at: <%= Time.now %>
+ * Updated at: <%= Time.now %>
+ *
  * Author: <%= author %>
  * Version: 0.0.0
+ *
  */
 
 /*global jQuery:false*/
