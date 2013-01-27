@@ -4,6 +4,9 @@ class Jplugin < Thor
   desc "compile", "Compiles js file to public/"
   def compile
     relative = 'jquery-<%= name %>.js'
+    text = File.read(relative)
+    text.gsub!(/Updated at: (.*)/) { |m| m.gsub($1, "#{Time.now}") }
+    File.open( relative, "w") { |file| file.puts text }
     run( "closure-compiler --js #{relative} --js_output_file ./public/#{relative.gsub(".js","-min.js")}" )
   end
 
