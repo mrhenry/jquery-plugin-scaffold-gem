@@ -1,12 +1,13 @@
-/*
- * <%= name %>
+/*global jQuery:false*/
+
+/** @preserve
+ * jquery-<%= name %>
  *
  * Created at: <%= Time.now %>
  * Author: <%= author %>
  * Version: 0.0.0
+ *
  */
-
-/*global jQuery:false*/
 
 (function($) {
   "use strict";
