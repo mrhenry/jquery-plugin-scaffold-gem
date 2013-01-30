@@ -33,6 +33,8 @@ gem install jplugin
 
 ## Usage
 
+Be sure not to include "jquery" in your plugin name, this will be added automatically.
+
 ```bash
-jplugin name-of-your-plugin your-author-name
+jplugin name-of-your-plugin "Author Name"
 ```
