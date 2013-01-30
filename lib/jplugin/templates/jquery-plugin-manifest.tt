@@ -10,7 +10,7 @@
   },
   "maintainers": [
     {
-      "name": "<%= author",
+      "name": "<%= author %>",
       "email": "",
       "url": ""
     }
